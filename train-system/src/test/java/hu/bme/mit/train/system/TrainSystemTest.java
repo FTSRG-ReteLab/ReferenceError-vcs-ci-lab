@@ -1,5 +1,6 @@
 package hu.bme.mit.train.system;
 
+import hu.bme.mit.train.interfaces.TrainTachograph;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +15,7 @@ public class TrainSystemTest {
 	TrainController controller;
 	TrainSensor sensor;
 	TrainUser user;
+	TrainTachograph tachograph;
 	
 	@Before
 	public void before() {
@@ -21,6 +23,7 @@ public class TrainSystemTest {
 		controller = system.getController();
 		sensor = system.getSensor();
 		user = system.getUser();
+		tachograph = system.getTachograph();
 
 		sensor.overrideSpeedLimit(50);
 	}
@@ -39,6 +42,22 @@ public class TrainSystemTest {
 		Assert.assertEquals(10, controller.getReferenceSpeed());
 		controller.followSpeed();
 		Assert.assertEquals(10, controller.getReferenceSpeed());
+	}
+
+
+	@Test
+	public void Tachograph_LogsSomething() {
+		sensor.overrideSpeedLimit(10);
+		user.overrideJoystickPosition(5);
+
+		controller.followSpeed();
+		tachograph.recordData();
+		controller.followSpeed();
+		tachograph.recordData();
+		controller.followSpeed();
+		tachograph.recordData();
+
+		Assert.assertTrue(tachograph.getData().size() > 0);
 	}
 
 	@Test
