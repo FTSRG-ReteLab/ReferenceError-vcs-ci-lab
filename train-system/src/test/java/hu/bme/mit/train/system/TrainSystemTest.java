@@ -66,7 +66,7 @@ public class TrainSystemTest {
 		Assert.assertEquals(10, controller.getReferenceSpeed());
 		controller.followSpeed();
 		Assert.assertEquals(10, controller.getReferenceSpeed());
-		controller.setJoystickYInverted(false`);
+		controller.setJoystickYInverted(false);
 	}
 
 	
