@@ -1,6 +1,6 @@
 # Train Speed Controller
 
-This is a sample application for the verification laboratory. It can also be used to control __heavy__ and ~~slow~~ *fast* trains.
+This is a sample Java application for the verification laboratory. It can also be used to control __heavy__ and ~~slow~~ *fast* trains.
 
 ## Getting started
 
