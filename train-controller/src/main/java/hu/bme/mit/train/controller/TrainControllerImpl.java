@@ -7,7 +7,7 @@ public class TrainControllerImpl implements TrainController {
 	private int step = 0;
 	private int referenceSpeed = 0;
 	private int speedLimit = 0;
-	private boolean y_inverted = false;
+	private boolean yInverted = false;
 
 	@Override
 	public void followSpeed() {
@@ -44,12 +44,12 @@ public class TrainControllerImpl implements TrainController {
 
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
-		this.step = (y_inverted ? -1 : 1) * joystickPosition;
+		this.step = (yInverted ? -1 : 1) * joystickPosition;
 	}
 
 	@Override
 	public void setJoystickYInverted(boolean inv) {
-		y_inverted = inv;
+		yInverted = inv;
 	}
 
 }
