@@ -8,6 +8,22 @@ public class TrainControllerImpl implements TrainController {
 	private int referenceSpeed = 0;
 	private int speedLimit = 0;
 	private boolean y_inverted = false;
+	//Creating a thread to simulate timing
+	private Thread myThread;
+
+	public TrainControllerImpl(){
+		myThread = new Thread(){
+			public void run(){
+				myThread.run();
+				followSpeed();
+				try {
+					myThread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		};
+	}
 
 	@Override
 	public void followSpeed() {
